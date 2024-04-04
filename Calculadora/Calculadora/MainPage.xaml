@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculadora.MainPage">
+
+
+
+
+    <ContentPage.Resources>
+        <!-- Estilo para los números -->
+        <Style TargetType="Button" x:Key="NumberButtonStyle">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="BackgroundColor" Value="#e0e0e0"/>
+        </Style>
+
+        <!-- Estilo para los botones de operadores -->
+        <Style TargetType="Button" x:Key="OperatorButtonStyle">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BackgroundColor" Value="#e0e0e0"/>
+        </Style>
+
+        <!-- Estilo para el botón "C" -->
+        <Style TargetType="Button" x:Key="ClearButtonStyle">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BackgroundColor" Value="#ff6666"/>
+        </Style>
+
+        <!-- Estilo para el botón "=" -->
+        <Style TargetType="Button" x:Key="EqualButtonStyle">
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BackgroundColor" Value="#ffcc00"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Contenido de la calculadora -->
+            <StackLayout Grid.Row="1"
+                         Padding="16"
+                         BackgroundColor="#f2f2f2"
+                         VerticalOptions="End">
+
+                <Label x:Name="textDisplay"
+                       Text="0"
+                       FontSize="24"
+                       TextColor="Black"
+                       BackgroundColor="White"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       Margin="0,0,0,16"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Botones para números y operadores -->
+                    <Button Text="7" Grid.Row="0" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="8" Grid.Row="0" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="9" Grid.Row="0" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="/" Grid.Row="0" Grid.Column="3" Style="{StaticResource OperatorButtonStyle}" Clicked="Button_Clicked"/>
+
+                    <Button Text="4" Grid.Row="1" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="6" Grid.Row="1" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="x" Grid.Row="1" Grid.Column="3" Style="{StaticResource OperatorButtonStyle}" Clicked="Button_Clicked"/>
+
+                    <Button Text="1" Grid.Row="2" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="2" Grid.Row="2" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="3" Grid.Row="2" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="-" Grid.Row="2" Grid.Column="3" Style="{StaticResource OperatorButtonStyle}" Clicked="Button_Clicked"/>
+
+                    <Button Text="0" Grid.Row="3" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="." Grid.Row="3" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="=" Grid.Row="3" Grid.Column="2" Style="{StaticResource EqualButtonStyle}" Clicked="Button_Clicked"/>
+                    <Button Text="+" Grid.Row="3" Grid.Column="3" Style="{StaticResource OperatorButtonStyle}" Clicked="Button_Clicked"/>
+
+                    <Button Text="C" Grid.Row="4" Grid.Column="0" Style="{StaticResource ClearButtonStyle}" Clicked="Button_Clear_Clicked"/>
+                </Grid>
+            </StackLayout>
+
+            <!-- Título -->
+            <Label Text="Puri Calculator" 
+                   FontSize="24" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Margin="0,20,0,10"/>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
